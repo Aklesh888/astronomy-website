@@ -16,7 +16,7 @@ const Navbar = () => {
           onClick={() => {
             setOpen(!open);
           }}
-          className={`md:hidden text-4xl fixed cursor-pointer ml-[82vw] mt-2 ${
+          className={`md:hidden text-4xl fixed cursor-pointer ml-[80vw] mt-2 ${
             open ? "hidden" : "visible"
           }`}
         >
@@ -26,7 +26,7 @@ const Navbar = () => {
           onClick={() => {
             setOpen(!open);
           }}
-          className={`md:hidden text-xl fixed cursor-pointer ml-[82vw] mt-2 h-4 w-4 ${
+          className={`md:hidden text-xl z-10 fixed cursor-pointer ml-[80vw] mt-2 h-4 w-4 ${
             open ? "visible" : "hidden"
           }`}
         >
@@ -49,9 +49,17 @@ const Navbar = () => {
               APOD
             </div>
           </Link>
+          <Link
+            to="/asteroids"
+            className="bg-white  h-10 w-24 rounded-full mx-1 leading-9  transition-all"
+          >
+            <div className="text-center align-bottom hover:scale-125 transition-all">
+              Asteroids
+            </div>
+          </Link>
         </div>
         <div
-          className={`absolute ml-[50%] mt-[800px] transition-all duration-[400] ${
+          className={`fixed ml-[50%] mt-[800px] transition-all duration-[400] ${
             open ? "mt-0" : "mt-[-800px]"
           }`}
         >
@@ -69,6 +77,12 @@ const Navbar = () => {
               className="bg-white h-10 w-24 rounded-full mx-1 hover:text-black hover:bg-white"
             >
               <div className="text-center align-middle leading-9">APOD</div>
+            </Link>
+            <Link
+              to="/asteroids"
+              className="bg-white h-10 w-24 rounded-full mx-1 hover:text-black hover:bg-white"
+            >
+              <div className="text-center align-middle leading-9">Asteroids</div>
             </Link>
           </div>
         </div>

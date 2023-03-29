@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./Navbar";
-import { Loader } from "react-feather";
+import { Loader } from "react-feather";import "react-datepicker/dist/react-datepicker.css";
 import Footer from "./Footer";
 
 const apiKey = `${process.env.REACT_APP_API_KEY}`;
@@ -13,18 +13,25 @@ const DatePicker = (props) => {
   let year = newDate.getFullYear();
 
   let currentDate = `${year}-${month}-${day}`;
-  const [date, setDate] = useState(null);
+  const [date, setDate] = useState('');
   const [isDateValid, setIsDateValid] = useState(false);
 
   const new_date = (event) => {
     const d1 = Date.parse(event.target.value);
     const d2 = Date.parse(currentDate);
+
     if (d1 > d2) {
       setIsDateValid(true);
     } else {
       console.log(event.target.value);
-      setDate(event.target.value);
-      props.onDatePicked(date);
+
+      setDate((prevSelectedDate) => {
+        if (prevSelectedDate === event.target.value) {
+          return prevSelectedDate;
+        }
+        return event.target.value;
+      });
+      props.onDatePicked(event.target.value);
       setIsDateValid(false);
     }
   };
@@ -45,7 +52,7 @@ const DatePicker = (props) => {
         onClick={handleChange}
       />
       <div className=" self-center">
-        <input onChange={new_date} type="date" className="m-10" />
+        <input onChange={new_date} type="date" value={date} className="m-10" />
       </div>
     </>
   );
@@ -64,7 +71,6 @@ const DateError = ({ className, onClick }) => {
           Ok
         </button>
       </div>
-      
     </div>
   );
 };
@@ -85,7 +91,6 @@ const PictureCard = (props) => {
   }, [props.date]);
 
   if (!photoData) {
-
     return (
       <div className=" flex items-center justify-center my-20">
         <Loader className="animate-spin" color="white" size={64}></Loader>
@@ -102,8 +107,11 @@ const PictureCard = (props) => {
             className="lg:h-[25rem] lg:w-[25rem] self-center rounded-3xl lg:m-8"
           />
         ) : (
-          <video src={photoData.url} >
-            <source type="video/mp4" className="lg:h-[25rem] lg:w-[25rem] self-center rounded-3xl lg:m-8"/>
+          <video src={photoData.url}>
+            <source
+              type="video/mp4"
+              className="lg:h-[25rem] lg:w-[25rem] self-center rounded-3xl lg:m-8"
+            />
           </video>
         )}
         <div className="h-auto w-auto m-5">
@@ -127,8 +135,13 @@ const Hero = () => {
         <div className="text-white text-5xl text-center">Today's Picture</div>
         <PictureCard date="" />
         <DatePicker
+      
           onDatePicked={(enteredDate) => {
-            setDate(enteredDate);
+            setTimeout(() => {
+              setDate(enteredDate);  
+              console.log(enteredDate);
+            }, 1000);
+            
           }}
         />
         <PictureCard date={date} />
