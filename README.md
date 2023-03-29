@@ -1,1 +1,1 @@
-A basic website made with NASA Astronomy picture of the day API. I plan to add more features to this by adding more APIs related to astronomy. 
+A basic website made with NASA Astronomy picture of the day API and Asteroids Api. APOD api fetches an image of a given date with its description and title. Asteroids API fetches data of Asteroids near Earth of aprticular date.
