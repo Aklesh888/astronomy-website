@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import background from "../images/quizBackground.avif";
+import background from "../images/quizBackground.jpg";
 
 const data = [
   {

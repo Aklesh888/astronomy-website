@@ -1,4 +1,56 @@
-import React from "react";
+import { useState } from "react";
+
+const DatePicker = (props) => {
+  const newDate = new Date();
+
+  let day = newDate.getDate() + 1;
+  let month = newDate.getMonth() + 1;
+  let year = newDate.getFullYear();
+
+  let currentDate = `${year}-${month}-${day}`;
+  const [date, setDate] = useState('');
+  const [isDateValid, setIsDateValid] = useState(false);
+
+  const new_date = (event) => {
+    const d1 = Date.parse(event.target.value);
+    const d2 = Date.parse(currentDate);
+
+    if (d1 > d2) {
+      setIsDateValid(true);
+    } else {
+
+      setDate((prevSelectedDate) => {
+        if (prevSelectedDate === event.target.value) {
+          return prevSelectedDate;
+        }
+        return event.target.value;
+      });
+      props.onDatePicked(event.target.value);
+      setIsDateValid(false);
+    }
+  };
+
+  const handleChange = () => {
+    setIsDateValid(false);
+  };
+
+  return (
+    <>
+      <div className=" text-4xl text-white text-center">
+        CHOOSE THE DATE
+      </div>
+      <DateError
+        className={` transition-all duration-500 ${
+          isDateValid ? "mt-10" : "mt-[-8000px]"
+        }`}
+        onClick={handleChange}
+      />
+      <div className=" self-center">
+        <input onChange={new_date} type="date" value={date} className="m-10" />
+      </div>
+    </>
+  );
+};
 
 const DateError = ({ className, onClick }) => {
   return (
@@ -17,49 +69,4 @@ const DateError = ({ className, onClick }) => {
   );
 };
 
-const DatePicker = (props) => {
-  const newDate = new Date();
-
-  let day = newDate.getDate() + 1;
-  let month = newDate.getMonth() + 1;
-  let year = newDate.getFullYear();
-
-  let currentDate = `${year}-${month}-${day}`;
-  const [date, setDate] = useState(null);
-  const [isDateValid, setIsDateValid] = useState(false);
-
-  const new_date = (event) => {
-    const d1 = Date.parse(event.target.value);
-    const d2 = Date.parse(currentDate);
-    if (d1 > d2) {
-      setIsDateValid(true);
-    } else {
-      console.log(event.target.value);
-      setDate(event.target.value);
-      props.onDatePicked(date);
-      setIsDateValid(false);
-    }
-  };
-
-  const handleChange = () => {
-    setIsDateValid(false);
-  };
-
-  return (
-    <>
-      <div className=" text-4xl text-white text-center">
-        CHOOSE THE DATE OF THE PICTURE
-      </div>
-      <DateError
-        className={` transition-all duration-500 ${
-          isDateValid ? "mt-10" : "mt-[-8000px]"
-        }`}
-        onClick={handleChange}
-      />
-      <div className=" self-center">
-        <input onChange={new_date} type="date" className="m-10" />
-      </div>
-    </>
-  );
-};
-export default DatePicker;
+export default DatePicker
