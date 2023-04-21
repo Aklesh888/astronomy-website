@@ -64,7 +64,7 @@ const Hero = () => {
 
   return (
     <>
-      <div className="flex justify-center flex-col">
+      <div className="flex justify-center flex-col pt-5">
         <div className="text-white text-5xl text-center">Today's Picture</div>
         <PictureCard date="" />
         <DatePicker
@@ -83,7 +83,7 @@ const Hero = () => {
 const Apod = () => {
   return (
     <>
-      <div className="bg-black h-auto">
+      <div className="bg-black h-auto ">
         <Navbar />
         <Hero />
         <Footer />

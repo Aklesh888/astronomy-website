@@ -35,7 +35,7 @@ const data = [
       },
       {
         text: "Betelgeuse",
-        correct: true,
+        correct: false,
       },
       {
         text: "Pole Star",
@@ -58,7 +58,7 @@ const data = [
       },
       {
         text: "Mercury and Venus",
-        correct: true,
+        correct: false,
       },
       {
         text: "Uranus and Neptune",
@@ -81,7 +81,7 @@ const data = [
       },
       {
         text: "Ceres and Europa",
-        correct: true,
+        correct: false,
       },
       {
         text: "Ceres and Pluto",
@@ -133,8 +133,8 @@ const Results = (props) => {
           </div>
         ) : (
           <div className="p-8 rounded-lg">
-            You have scored {props.correctAnswers} in your
-            Quiz. Try harder next time!
+            You have scored {props.correctAnswers} in your Quiz. Try harder next
+            time!
           </div>
         )}
       </div>
@@ -147,6 +147,7 @@ const Quiz = () => {
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [isQuizFinished, setIsQuizFinished] = useState(false);
+  // const [quizStarted, setQuizStarted] = useState(false);
 
   const questionNumberhandler = () => {
     setQuestionNumber(questionNumber + 1);
@@ -165,7 +166,7 @@ const Quiz = () => {
   };
 
   return (
-    <div className=" text-white">
+    <div id="quiz" className=" text-white">
       {isQuizFinished ? (
         <div>
           <Results correctAnswers={correctAnswers} />
@@ -186,8 +187,8 @@ const Quiz = () => {
                   selectedAnswer === answer
                     ? "bg-blue-400 "
                     : "bg-[#3E54AC] hover:text-[#3E54AC] hover:bg-white hover:border-[#3E54AC]"
-                } text-3xl cursor-pointer  rounded-lg px-4 py-2 m-2 w-1/3 text-center min-h-40 text-white
-            border-4`}
+                      } text-3xl cursor-pointer  rounded-lg px-4 py-2 m-2 w-1/3 text-center min-h-40 text-white
+                        border-4`}
                 onClick={() => handleClick(answer)}
               >
                 {answer.text}

@@ -36,12 +36,12 @@ const DatePicker = (props) => {
 
   return (
     <>
-      <div className=" text-4xl text-white text-center">
+      <div className=" text-4xl text-white text-center pt-5">
         CHOOSE THE DATE
       </div>
       <DateError
         className={` transition-all duration-500 ${
-          isDateValid ? "mt-10" : "mt-[-8000px]"
+          isDateValid ? "mt-[-1500px]" : "mt-[-5000px]"
         }`}
         onClick={handleChange}
       />
