@@ -79,7 +79,7 @@ const Hero = () => {
             by date!
           </div>
           
-          {/* <Planet /> */}
+          <Planet />
           
         </div>
         
