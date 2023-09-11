@@ -193,6 +193,7 @@ const Quiz = () => {
               >
                 {answer.text}
               </div>
+              
             ))}
           </div>
           <button

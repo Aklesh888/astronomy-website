@@ -32,7 +32,7 @@ const PictureCard = (props) => {
   }
   return (
     <>
-      <div className="flex flex-col rounded-3xl w-auto self-center h-auto m-20 justify-around bg-white lg:flex-row">
+      <div className="flex flex-col rounded-3xl w-auto self-center h-auto md:m-20 justify-around bg-white lg:flex-row">
         {photoData.media_type === "image" ? (
           <img
             src={photoData.url}
@@ -48,11 +48,11 @@ const PictureCard = (props) => {
           </video>
         )}
         <div className="h-auto w-auto m-5">
-          <div className="text-2xl m-10 md:text-3xl font-bold">
+          <div className="text-2xl md:m-10 md:text-3xl font-bold">
             {photoData.title}
           </div>
-          <div className="m-10">{props.date}</div>
-          <div className="m-10 text-base ">{photoData.explanation}</div>
+          <div className="md:m-10">{props.date}</div>
+          <div className="md:m-10 text-base ">{photoData.explanation}</div>
         </div>
       </div>
     </>
@@ -67,6 +67,9 @@ const Hero = () => {
       <div className="flex justify-center flex-col pt-5">
         <div className="text-white text-5xl text-center">Today's Picture</div>
         <PictureCard date="" />
+        <div className=" text-4xl text-white text-center pt-5">
+        CHOOSE THE DATE OF THE IMAGE
+      </div>
         <DatePicker
       
           onDatePicked={(enteredDate) => {

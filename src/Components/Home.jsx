@@ -61,8 +61,8 @@ const Hero = () => {
         }}
       
       ></Particles> */}
-      <div className="flex flex-col text-white bg-w text-left space-y-10 my-16">
-        <div className=" flex justify-center md:mx-[20%] my-40">
+      <div className="flex flex-col text-white bg-w text-left space-y-10 md:my-16">
+        <div className=" flex justify-center md:mx-[20%] my-40 flex-col md:flex-row">
           <div className="text-3xl mx-6 py-1 px-6  text-white rounded-lg mt-4 font-medium">
             Discover the wonders of the universe with our astronomy app! Take a{" "}
             <a href="#quiz" className=" text-blue-500">
@@ -78,7 +78,9 @@ const Hero = () => {
             </Link>{" "}
             by date!
           </div>
-          <Planet />
+          
+          {/* <Planet /> */}
+          
         </div>
         
         <Quiz></Quiz>

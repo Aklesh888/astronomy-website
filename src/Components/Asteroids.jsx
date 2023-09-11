@@ -91,6 +91,9 @@ const Asteroids = () => {
   return (
     <div className="bg-black flex justify-center flex-col">
       <Navbar />
+      <div className=" text-4xl text-white text-center pt-5">
+        CHOOSE THE DATE
+      </div>
       <DatePicker
         onDatePicked={(enteredDate) => {
           setDate(enteredDate);

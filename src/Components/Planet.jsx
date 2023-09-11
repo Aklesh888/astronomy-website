@@ -5,7 +5,7 @@ import Scene from "../Components/Scene";
 
 const Planet = () => {
   return (
-    <Canvas style={{height: '300px', width: '100vw'}}>
+    <Canvas style={{height: '300px', width: '100vw'}} className="md:mt-8">
       <Stage environment="night" intensity={0.6}>
         <Scene/>
       </Stage>

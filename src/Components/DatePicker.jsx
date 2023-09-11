@@ -36,15 +36,13 @@ const DatePicker = (props) => {
 
   return (
     <>
-      <div className=" text-4xl text-white text-center pt-5">
-        CHOOSE THE DATE
-      </div>
-      <DateError
+
+      {/* <DateError
         className={` transition-all duration-500 ${
           isDateValid ? "mt-[-1500px]" : "mt-[-5000px]"
         }`}
         onClick={handleChange}
-      />
+      /> */}
       <div className=" self-center">
         <input onChange={new_date} type="date" value={date} className="m-10" />
       </div>

@@ -11,7 +11,7 @@ const Navbar = () => {
     <>
       <div className="flex p-6 px-[1%] md:px-[5%] transition-all bg-zinc-500 pb-1">
         <img src={logo} alt="" className="h-10 w-10 mx-3 my-1" />
-        <div className="text-3xl text-white">AstronomyApp</div>
+        <Link className="text-3xl text-white">AstronomyApp</Link>
         <div
           onClick={() => {
             setOpen(!open);
